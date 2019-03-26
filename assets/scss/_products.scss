@@ -1,0 +1,19 @@
+.product{
+  border:1px solid gray;
+  width: 300px;
+  margin: 15px;
+  text-align: center;
+}
+.product-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &>*{
+    margin: 5px;
+  }
+  
+}
+.loadMore{
+  margin: 10px auto;
+  
+}

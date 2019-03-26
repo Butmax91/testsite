@@ -1,0 +1,12 @@
+.signup{
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  legend{
+    padding: 10px;
+  }
+  input{
+    margin-bottom: 15px;
+  }
+}

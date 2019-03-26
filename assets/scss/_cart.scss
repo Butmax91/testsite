@@ -1,0 +1,52 @@
+
+.cart{
+  position: fixed;
+  display: none;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0,0,0,0.8);
+  &-content{
+    width: 60%;
+    height: 400px;
+    background: white;
+    margin: 200px auto;
+    overflow-y: scroll ;
+    padding-bottom: 15px;
+  }
+  &-table{
+    thead{
+      padding: 10px;
+      font-size: 18px;
+      
+    }
+    tbody,tfoot{
+      tr{
+        height: 150px;
+        td{
+          font-size: 20px;
+          vertical-align: middle;
+          text-align: center;
+          button{
+            background: none;
+            border: none;
+            outline: none;
+          }
+        }
+      }
+      .cart-table-img{
+        max-width: 150px !important;
+      }
+      .rowCount{
+        height: 150px;
+      }
+
+    }
+    tfoot tr{
+      height: 30px;
+      background: darken(white,10%) ;
+    }
+  }
+}

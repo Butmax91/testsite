@@ -1,0 +1,59 @@
+.header{
+  position: static;
+  nav{
+    background-color: #3867ff;
+    position: fixed;
+    width: 100%;
+    a{
+      cursor:pointer;
+    }
+  }
+  .btn{
+    color:white;
+    cursor: pointer;
+  }
+  .auth{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+      a{
+        margin-left: 15px;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    .logout{
+      display: none;
+      
+    }
+  }
+  .cartImg{
+    color:white;
+    font-size: 32px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 15px;
+    &-count{
+      position:absolute;
+      font-size: 12px;
+      padding: 3px 5px;
+      background:#3867ff ;
+      border-radius: 50%;
+      top:10px;
+      left: 18px;
+    }
+  }
+  .userInfo{
+    color:white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    .fas{
+      margin-left: 5px;
+    }
+  }
+}

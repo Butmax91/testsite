@@ -1,0 +1,19 @@
+.serchContainer{
+  position: fixed;
+  top:52px;
+  width: 100%;
+  background: #3867ff;
+}
+.search-table{
+  background: white;
+  margin: auto;
+  .search-table-img{
+    width: 50% !important;
+  }
+  td{
+    vertical-align: middle;
+    img{
+      width: 100px;
+    }
+  }
+}
