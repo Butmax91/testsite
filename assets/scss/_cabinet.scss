@@ -1,0 +1,34 @@
+.userInfo{
+  textarea {
+    color: #212529;
+  }
+
+  input{
+    &::placeholder{
+      color:#212529;
+      padding: 10px;
+    }
+  }
+  label{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+}
+
+.userOrders{
+  overflow: scroll;
+  table {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  caption{
+    caption-side: top;
+    text-align: center;
+    padding: 10px 0;
+  }
+  td{
+    vertical-align: middle;
+  }
+
+}

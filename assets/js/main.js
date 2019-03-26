@@ -169,8 +169,8 @@
         for (let i = 0; i < length; i++) {
             serchTable.innerHTML +=
                 `<tr>
-                    <td class="search-table-img col-1"><img src="assets/${arg[i].cloth_img}" alt=""></td>
-                    <td>${arg[i].cloth_title}</td>
+                   <td class="search-table-img col-1"><a href="http://testsite/itemID/${arg[i].clothID}"><img src="http://testsite/assets/${arg[i].cloth_img}" alt=""></a> </td>
+                    <td><a href="http://testsite/itemID/${arg[i].clothID}"> ${arg[i].cloth_title}</a></td>
                 </tr>`
         }
     }
@@ -228,6 +228,17 @@
         drowTable();
     }
 })();
+(function changeDataInInput() {
+    if(window.location.toString = 'http://testsite/cabinet'){
+        let dateTd =document.querySelectorAll('.userIrders-date');
+        for (let i = 0; i < dateTd.length; i++) {
+            let st = dateTd[i].innerHTML * '000';
+            let d = new Date(parseInt(dateTd[i].innerHTML) * 1000)
+            let res =`${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`
+            dateTd[i].innerHTML = res;
+        }
+    }
+})()
 
 
 

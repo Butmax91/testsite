@@ -7210,3 +7210,27 @@ main.content {
     vertical-align: middle; }
   .order-content tfoot {
     background: #e6e6e6; }
+
+.userInfo textarea {
+  color: #212529; }
+
+.userInfo input::placeholder {
+  color: #212529;
+  padding: 10px; }
+
+.userInfo label {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0; }
+
+.userOrders {
+  overflow: scroll; }
+  .userOrders table {
+    overflow-y: scroll;
+    overflow-x: hidden; }
+  .userOrders caption {
+    caption-side: top;
+    text-align: center;
+    padding: 10px 0; }
+  .userOrders td {
+    vertical-align: middle; }

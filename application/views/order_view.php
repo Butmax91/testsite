@@ -17,37 +17,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        value="<?php if(isset($userInfo['phonenumber'])) echo $userInfo['phonenumber']?>"
                        placeholder="(0**) **-**-***" > </label>
             <?=form_error('phonenumber')?>
-
-            <label for="">Input your city
-                <input type="text"
-                       name="city"
-                       value="<?php if(isset($userInfo['city'])) echo $userInfo['city']?>"></label>
-            <?=form_error('city')?>
-            <label for="">Input your adress
-                <input type="text"
-                       name="street"
-                       value="<?php if(isset($userInfo['street'])) echo $userInfo['street']?>"></label>
-            <?=form_error('street')?>
-            <label for="">Input your adress
-                <input type="text"
-                       name="building"
-                       value="<?php if(isset($userInfo['building'])) echo $userInfo['building']?>"></label>
-            <?=form_error('building')?>
-            <label for="">Input your adress
-                <input type="text"
-                       name="appartment"
-                       value="<?php if(isset($userInfo['appartment'])) echo $userInfo['appartment']?>"></label>
-            <?=form_error('appartment')?>
+            <label for="" class="text-left">Input your adress
+                <textarea type="text"
+                          name="adress"
+                          ">
+                <?php if(isset($userInfo['adress'])) echo $userInfo['adress']?>
+                </textarea>
+            </label>
+            <?=form_error('adress')?>
             <label for="">Select method of obtaining
                 <select name="delivery" >
-                    <option value="bySelf">By self</option>
+                    <option value="bySelf" selected>By self</option>
                     <option value="curier">curier</option>
                 </select>
             </label>
             <label for="">Select method of payment
                 <select name="payment" >
-                    <option value="cash">cash</option>
-                    <option value="cashless">cashless</option>
+                    <option value="cash" selected>cash</option>
+                    <option value="cashless" selected>cashless</option>
                 </select>
             </label><br>
             <input type="text" id="orderValue" name="orderData" style="display: none">

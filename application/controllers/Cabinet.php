@@ -12,24 +12,19 @@ class Cabinet extends CI_Controller {
     public function index(){
         if (isset($_POST['login'])){
             $this->form_validation->set_error_delimiters('<p >', '</p>');
-            $this->form_validation->set_rules('login', 'Login', 'min_length[5]|max_length[15]');
+            $this->form_validation->set_rules('login', 'Login', 'min_length[2]|max_length[15]');
             $this->form_validation->set_rules('phonenumber', 'phonenumber', 'min_length[10]|max_length[10]|numeric|is_unique[users.phonenumber]');
             $this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[users.email]');
-            $this->form_validation->set_rules('city', 'city', 'min_length[3]|max_length[15]');
-            $this->form_validation->set_rules('street', 'street', 'min_length[3]|max_length[15]');
-            $this->form_validation->set_rules('building', 'building', 'min_length[3]|max_length[15]');
-            $this->form_validation->set_rules('appartment', 'appartment', 'min_length[3]|max_length[15]');
+            $this->form_validation->set_rules('adress', 'adress', 'required');
+
             if ($this->form_validation->run()) {
                 $user = array(
                     'login' => $_POST['login'],
                     'email' => $_POST['email'],
                     'phonenumber' => $_POST['phonenumber'],
-                    'city' => $_POST['city'],
-                    'street' => $_POST['street'],
-                    'building' => $_POST['building'],
-                    'appartment' => $_POST['appartment'],
+                    'adress' => trim($_POST['adress']),
                 );
-                echo $user['appartment'];
+
                 foreach($user as $k => $val) {
                     if($val == "") {
                         unset($user[$k]);
@@ -41,9 +36,6 @@ class Cabinet extends CI_Controller {
             }
         }
         if(isset($_SESSION['user_ID'])){
-            if (isset($_POST['street'])){
-                $data['str'] = $_POST['street'];
-            }
             $this->load->model('MainModel');
             $orders = $this->MainModel->getOrdersForCabinet($_SESSION['user_ID']);
             $userInfo = $this->MainModel->getUserInfo();
@@ -52,7 +44,7 @@ class Cabinet extends CI_Controller {
             $data['content'] = 'cabinet_view';
             $this->load->view('layout_view',$data);
         }else{
-            $data['content'] = 'error_view';
+            $data['content'] = 'afterOrder_view';
             $this->load->view('layout_view',$data);
         }
 
@@ -60,13 +52,11 @@ class Cabinet extends CI_Controller {
     public function order(){
         if (isset($_POST['login'])){
             $this->form_validation->set_error_delimiters('<p >', '</p>');
-            $this->form_validation->set_rules('login', 'Login', 'min_length[5]|max_length[15]|required');
+            $this->form_validation->set_rules('login', 'Login', 'min_length[2]|max_length[15]|required');
             $this->form_validation->set_rules('phonenumber', 'phonenumber', 'min_length[10]|max_length[10]|numeric|required');
                 $this->form_validation->set_rules('email', 'Email', 'valid_email');
-                $this->form_validation->set_rules('city', 'city', 'min_length[3]|max_length[15]|required');
-                $this->form_validation->set_rules('street', 'street', 'min_length[3]|max_length[15]|required');
-                $this->form_validation->set_rules('building', 'building', 'min_length[3]|max_length[15]|required');
-                $this->form_validation->set_rules('appartment', 'appartment', 'min_length[3]|max_length[15]|required');
+                $this->form_validation->set_rules('adress', 'adress', 'required');
+
                 if ($this->form_validation->run()) {
                     $orderData = json_decode($_POST['orderData'],true);
                     for($i = 0; $i < count($orderData);$i++ ){
@@ -78,13 +68,10 @@ class Cabinet extends CI_Controller {
                             'orderPrice' => $orderData[$i]['price'],
                             'orderPayment' => $_POST['payment'],
                             'orderDelivery' => $_POST['delivery'],
-                            'apartment' => $_POST['appartment'],
-                            'building' => $_POST['building'],
-                            'street' => $_POST['street'],
-                            'city' => $_POST['city'],
+                            'adress' => trim($_POST['adress']),
                         );
                         $this->db->insert('orders',$order);
-                        echo "ololo all good";
+                        redirect('/cabinet', 'refresh');
                     }
 
                 }
