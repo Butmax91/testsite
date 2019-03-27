@@ -104,9 +104,9 @@
             const data={};
             setCount();
             data.id = e.target.dataset.id;
-            data.img = e.path[1].children[0].children[0].src;
-            data.title = e.path[1].children[1].innerText;
-            data.price = e.path[1].children[2].innerText;
+            data.img = e.path[1].children[1].children[0].src;
+            data.title = e.path[1].children[3].innerText;
+            data.price = e.path[1].children[5].innerText;
             data.count = 1;
             //let tr = e.path[1].children[0].children[0];
             addToLOcalStorage(data);
@@ -157,6 +157,29 @@
                 buy(e);
                 showCart();
             }
+            if (e.target.className.indexOf('slider') === 0 &&  (e.target.innerText === '<' )) {
+                let count = e.path[1].children[1].children[0].dataset.count;
+                let src = e.path[1].children[1].children[0].src;
+                let img =  e.path[1].children[1].children[0];
+                let ext = src.substr(src.length-5) ;
+                let href = src.substring(0, src.length-6);
+                let imgNum = parseInt(src.substring(src.length-6, src.length-5));
+                imgNum--;
+                imgNum = imgNum === 0 ? 4 : imgNum;
+                console.log(imgNum);
+                img.src = href + imgNum + ext;
+            }else if(e.target.className.indexOf('slider') === 0 &&  (e.target.innerText === '>' )){
+                let count = e.path[1].children[1].children[0].dataset.count;
+                let src = e.path[1].children[1].children[0].src;
+                let img =  e.path[1].children[1].children[0];
+                let ext = src.substr(src.length-5) ;
+                let href = src.substring(0, src.length-6);
+                let imgNum = parseInt(src.substring(src.length-6, src.length-5));
+                imgNum++;
+                imgNum = imgNum === 5 ? 1 : imgNum;
+                console.log(imgNum);
+                img.src = href + imgNum + ext;
+            }
 
         });
     }
@@ -169,8 +192,8 @@
         for (let i = 0; i < length; i++) {
             serchTable.innerHTML +=
                 `<tr>
-                   <td class="search-table-img col-1"><a href="http://testsite/itemID/${arg[i].clothID}"><img src="http://testsite/assets/${arg[i].cloth_img}" alt=""></a> </td>
-                    <td><a href="http://testsite/itemID/${arg[i].clothID}"> ${arg[i].cloth_title}</a></td>
+                   <td class="search-table-img col-1"><a href="http://testsite/itemID/${arg[i].clothID}"><img src="http://testsite/assets/img/${arg[i].shoesImg}/1.jpeg" alt=""></a> </td>
+                    <td><a href="http://testsite/itemID/${arg[i].clothID}"> ${arg[i].shoesTitle}</a></td>
                 </tr>`
         }
     }
@@ -239,6 +262,7 @@
         }
     }
 })()
+
 
 
 

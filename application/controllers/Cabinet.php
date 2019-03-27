@@ -63,12 +63,12 @@ class Cabinet extends CI_Controller {
                         $order = array(
                             'userID' => $_POST['userID'],
                             'orderDate' => time(),
-                            'clothesID' => $orderData[$i]['id'],
+                            'shoesID' => $orderData[$i]['id'],
                             'orderCount' => $orderData[$i]['count'],
                             'orderPrice' => $orderData[$i]['price'],
                             'orderPayment' => $_POST['payment'],
                             'orderDelivery' => $_POST['delivery'],
-                            'adress' => trim($_POST['adress']),
+                            'orderAdress' => trim($_POST['adress']),
                         );
                         $this->db->insert('orders',$order);
                         redirect('/cabinet', 'refresh');

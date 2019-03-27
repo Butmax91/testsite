@@ -10,8 +10,8 @@ class Main extends CI_Controller {
             $data['userInfo'] = $userInfo;
         }
         $this->load->model('MainModel');
-        $clothes = $this->MainModel->getClothes();
-        $data['clothes'] = $clothes;
+        $shoes = $this->MainModel->getShoes();
+        $data['shoes'] = $shoes;
         $data['content'] = 'main_view';
         $this->load->view('layout_view',$data);
 
@@ -23,8 +23,6 @@ class Main extends CI_Controller {
             $data['userInfo'] = $userInfo;
         }
         $this->load->model('MainModel');
-        $clothes = $this->MainModel->getClothes();
-        $data['clothes'] = $clothes;
         $item = $this->MainModel->getItemById($itemID);
         $data['content'] = 'item_view';
         $data['item'] = $item;

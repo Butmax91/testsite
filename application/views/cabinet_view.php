@@ -52,16 +52,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <table class="table">
             <caption>Your orders</caption>
             <tbody>
-            <?php if(!isset($orders['cloth_img'])){
+            <?php if(count($orders)<1){
                 echo '<tr><td class="text-center">you have no orders yet</td> </tr> ';
             } ?>
             <?php foreach ($orders as $order):?>
                 <tr>
                     <td class="userIrders-img">
-                        <img src="<?=base_url()?>assets/<?=$order['cloth_img']?>" width="50" alt="">
+                        <img src="<?=base_url()?>assets/img/<?=$order['shoesImg']?>/1.jpeg" width="50" alt="">
                     </td>
                     <td class="userIrders-title">
-                        <?=$order['cloth_title'] ?>
+                        <?=$order['shoesTitle'] ?>
                     </td>
                     <td class="userIrders-date"><?=$order['orderDate'] ?></td>
                 </tr>
